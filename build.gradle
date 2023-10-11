@@ -1,0 +1,52 @@
+plugins {
+    id 'java'
+    id 'java-library'
+}
+
+group 'dev.projects.jnumericalmath'
+version '0.1.5'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+def lombokVersion = '1.18.24'
+def junitVersion = '5.9.0-M1'
+
+dependencies {
+    constraints {
+        compileOnly "org.projectlombok:lombok:${lombokVersion}"
+        annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+        testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
+        testImplementation "org.junit.jupiter:junit-jupiter-params:${junitVersion}"
+        testRuntimeOnly "org.junit.jupiter:junit-jupiter-params:${junitVersion}"
+    }
+
+    implementation project(':jdatasources')
+    implementation project(':jexception')
+    implementation project(':jlinalgebra')
+    implementation project(':jnumoptimization')
+    implementation project(':jtransformations')
+
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+    testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+    testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
+    testImplementation "org.junit.jupiter:junit-jupiter-params:${junitVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-params:${junitVersion}"
+}
+
+test {
+    useJUnitPlatform()
+}

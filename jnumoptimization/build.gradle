@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'java-library'
+}
+
+group 'dev.projects.math'
+version '0.21'
+
+repositories {
+    mavenCentral()
+}
+
+def j2htmlVersion = '1.5.0'
+def lombokVersion = '1.18.24'
+def junitVersion = '5.8.2'
+
+dependencies {
+    constraints {
+        compileOnly "org.projectlombok:lombok:${lombokVersion}"
+        annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+        testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    }
+
+    implementation project(':jexception')
+    implementation project(':jdatasources')
+    implementation project(':jtransformations')
+    implementation project(':jlinalgebra')
+
+    implementation "com.j2html:j2html:${j2htmlVersion}"
+
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+    testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+    testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+test {
+    useJUnitPlatform()
+}

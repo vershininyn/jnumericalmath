@@ -1,0 +1,23 @@
+server:
+  port: 8080
+  address: 127.0.0.1
+  servlet:
+    context-path: /api
+
+spring:
+#  liquibase:
+#    change-log: db/changelog/dbchangelog-master.xml
+#    enabled: true
+#    drop-first: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://172.19.0.2:5432/postgres
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: secret
+    hikari:
+      idle-timeout: 10000

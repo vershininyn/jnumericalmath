@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group 'dev.projects.jnumericalmath'
+version '0.1'
+
+repositories {
+    mavenCentral()
+}
+
+def junitJupiterApiVersion = '5.9.0'
+def junitJupiterEngineVersion = '5.9.0'
+
+dependencies {
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitJupiterApiVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitJupiterEngineVersion}"
+}
+
+test {
+    useJUnitPlatform()
+}
