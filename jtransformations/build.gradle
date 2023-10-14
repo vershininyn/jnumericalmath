@@ -3,15 +3,16 @@ plugins {
     id 'java-library'
 }
 
-group 'dev.projects.jnumericalmath'
+group 'dev.projects.math.jnummath.jtransformations'
 version '0.1.5'
 
 repositories {
     mavenCentral()
 }
 
-tasks.withType( JavaCompile ).configureEach {
-    options.forkOptions.jvmArgs.addAll( ['--add-opens', 'jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED'] )
+java {
+    sourceCompatibility = '17'
+    targetCompatibility = '17'
 }
 
 def ejmlVersion = '0.41'
@@ -31,7 +32,7 @@ dependencies {
         testRuntimeOnly "org.junit.jupiter:junit-jupiter-params:${junitVersion}"
     }
 
-    implementation project(':jexception')
+    implementation project(':jkernel')
     implementation project(':jlinalgebra')
     implementation project(':jdatasources')
 

@@ -1,9 +1,9 @@
 package dev.projects.jnumericalmath.jlinearalgebra.doubledatablocks;
 
-import dev.projects.math.linalgebra.blocks.IDataBlock;
-import dev.projects.math.linalgebra.blocks.mappeddoublebuffer.MappedDoubleDataBlock;
-import dev.projects.math.linalgebra.blocks.memorydoublebuffer.MemoryDoubleDataBlock;
-import dev.projects.utils.exception.LoggableException;
+import dev.projects.math.jnummath.jlinalgebra.blocks.IDataBlock;
+import dev.projects.math.jnummath.jlinalgebra.blocks.mappeddoublebuffer.MappedDoubleDataBlock;
+import dev.projects.math.jnummath.jlinalgebra.blocks.memorydoublebuffer.MemoryDoubleDataBlock;
+import dev.projects.math.jnummath.jkernel.exceptions.LoggableException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -137,7 +137,7 @@ public class DataBlocksTests {
 
     private void verifyDataBlockByEqualsToSomeValue(IDataBlock block,
                                                     int dimension,
-                                                    double expectedValue) throws LoggableException {
+                                                    double expectedValue)   {
         for (int index = 0; index < dimension; index++) {
             Assertions.assertEquals(expectedValue, block.readValue(index));
         }

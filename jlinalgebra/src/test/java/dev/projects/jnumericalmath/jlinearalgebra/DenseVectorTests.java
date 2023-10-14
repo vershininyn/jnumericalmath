@@ -1,14 +1,14 @@
 package dev.projects.jnumericalmath.jlinearalgebra;
 
-import dev.projects.math.linalgebra.DenseVector;
-import dev.projects.utils.exception.LoggableException;
+import dev.projects.math.jnummath.jlinalgebra.dense.DenseVector;
+import dev.projects.math.jnummath.jkernel.exceptions.LoggableException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class DenseVectorTests {
 
     @Test
-    public void splitOneAtLeftTest() throws LoggableException {
+    public void splitOneAtLeftTest()   {
         DenseVector[] array = DenseVector
                 .getInstance(new double[]{0.0,1.0,2.0,3.0})
                 .splitAtIndex(0, false);
@@ -18,7 +18,7 @@ public class DenseVectorTests {
     }
 
     @Test
-    public void splitOneAtRigthTest() throws LoggableException {
+    public void splitOneAtRigthTest()   {
         DenseVector[] array = DenseVector
                 .getInstance(new double[]{0.0,1.0,2.0,3.0})
                 .splitAtIndex(3, false);
@@ -28,7 +28,7 @@ public class DenseVectorTests {
     }
 
     @Test
-    public void splitPartWithMiddleToLeftTest() throws LoggableException {
+    public void splitPartWithMiddleToLeftTest()   {
         DenseVector[] array = DenseVector
                 .getInstance(new double[]{0.0,1.0,2.0,3.0})
                 .splitAtIndex(1, true);
@@ -38,7 +38,7 @@ public class DenseVectorTests {
     }
 
     @Test
-    public void splitPartWithMiddleToRigthTest() throws LoggableException {
+    public void splitPartWithMiddleToRigthTest()   {
         DenseVector[] array = DenseVector
                 .getInstance(new double[]{0.0,1.0,2.0,3.0})
                 .splitAtIndex(1, false);
@@ -48,7 +48,7 @@ public class DenseVectorTests {
     }
 
     @Test
-    public void extendArrayTest() throws LoggableException {
+    public void extendArrayTest()   {
         DenseVector vector = DenseVector.getInstance(3, 0.0);
 
         Assertions.assertArrayEquals(new double[]{0.0,0.0,0.0,1.0,1.0,1.0}, vector.extendByArray(new double[]{1.0,1.0,1.0}).getData());

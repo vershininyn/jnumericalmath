@@ -1,0 +1,47 @@
+package dev.projects.math.jnummath.jnumoptimization.unconstrained.local.directionsearch.firstorder.impl.learning.spacetension.base;
+
+import dev.projects.math.jnummath.jlinalgebra.dense.DenseMatrix;
+import dev.projects.math.jnummath.jlinalgebra.dense.DenseVector;
+import dev.projects.math.jnummath.jnumoptimization.unconstrained.local.directionsearch.firstorder.impl.learning.spacetension.operators.base.ISpaceTensionMatrixCorrectionOperator;
+import dev.projects.math.jnummath.jnumoptimization.unconstrained.local.directionsearch.firstorder.impl.learning.spacetension.operators.base.ISpaceTensionInternalDirectionCorrectionOperator;
+import dev.projects.math.jnummath.jtransformations.function.scalar.differentiable.IScalarDifferentiableFunction;
+import dev.projects.utils.exception.LoggableException;
+import lombok.Getter;
+
+import java.util.Objects;
+
+public abstract class AbstractFirstOrderSpaceTensionDirectionSearchAlgorithmWithIDCOperator
+        extends AbstractFirstOrderSpaceTensionDirectionSearchAlgorithm {
+
+    @Getter
+    private ISpaceTensionInternalDirectionCorrectionOperator internalDirectionCorrectionOperator;
+
+    public AbstractFirstOrderSpaceTensionDirectionSearchAlgorithmWithIDCOperator(int primeHashCode,
+                                                                                 ISpaceTensionMatrixCorrectionOperator stoOperator,
+                                                                                 ISpaceTensionInternalDirectionCorrectionOperator idcOperator)   {
+        super(primeHashCode, stoOperator);
+        setInternalDirectionCorrectionOperator(idcOperator);
+    }
+
+    public void setInternalDirectionCorrectionOperator(ISpaceTensionInternalDirectionCorrectionOperator operator)   {
+        if (operator == null) throw new LoggableException("Unacceptable a internal direction correction operator");
+
+        internalDirectionCorrectionOperator = operator;
+    }
+
+
+    @Override
+    protected DenseVector doActualInternalDirectionCorrection(DenseVector correctionGradient,
+                                                              DenseMatrix currentMatrix,
+                                                              DenseVector currentPoint,
+                                                              IScalarDifferentiableFunction function)   {
+        return getInternalDirectionCorrectionOperator().correctInternalDirection(getInternalDirection(),
+                                                                                 correctionGradient,
+                                                                                    currentMatrix);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getPrimeHashCode(), getMatrixCorrectionOperator(), getInternalDirectionCorrectionOperator());
+    }
+}

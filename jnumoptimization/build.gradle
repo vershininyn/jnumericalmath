@@ -3,11 +3,16 @@ plugins {
     id 'java-library'
 }
 
-group 'dev.projects.math'
-version '0.21'
+group 'dev.projects.math.jnummath.jnumoptimization'
+version '0.2.1'
 
 repositories {
     mavenCentral()
+}
+
+java {
+    sourceCompatibility = '17'
+    targetCompatibility = '17'
 }
 
 def j2htmlVersion = '1.5.0'
@@ -23,8 +28,9 @@ dependencies {
         testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     }
 
-    implementation project(':jexception')
+    implementation project(':jkernel')
     implementation project(':jdatasources')
+
     implementation project(':jtransformations')
     implementation project(':jlinalgebra')
 

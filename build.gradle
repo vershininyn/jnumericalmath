@@ -3,16 +3,17 @@ plugins {
     id 'java-library'
 }
 
-group 'dev.projects.jnumericalmath'
+group 'dev.projects.math.jnumericalmath'
 version '0.1.5'
 
 repositories {
     mavenCentral()
 }
 
-sourceCompatibility = '17'
-targetCompatibility = '17'
-
+java {
+    sourceCompatibility = '17'
+    targetCompatibility = '17'
+}
 def lombokVersion = '1.18.24'
 def junitVersion = '5.9.0-M1'
 
@@ -28,9 +29,11 @@ dependencies {
         testRuntimeOnly "org.junit.jupiter:junit-jupiter-params:${junitVersion}"
     }
 
+    implementation project(':jkernel')
+
     implementation project(':jdatasources')
-    implementation project(':jexception')
     implementation project(':jlinalgebra')
+
     implementation project(':jnumoptimization')
     implementation project(':jtransformations')
 

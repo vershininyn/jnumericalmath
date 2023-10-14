@@ -1,14 +1,14 @@
 package dev.projects.jnumericalmath.jlinearalgebra.v2;
 
-import dev.projects.math.linalgebra.entities.IVector;
-import dev.projects.math.linalgebra.entities.DenseVectorV2;
-import dev.projects.utils.exception.LoggableException;
+import dev.projects.math.jnummath.jlinalgebra.entities.IVector;
+import dev.projects.math.jnummath.jlinalgebra.entities.DenseVectorV2;
+import dev.projects.math.jnummath.jkernel.exceptions.LoggableException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MemoryDenseVectorV2Tests {
     @Test
-    public void multiplyByCoefficientTest() throws LoggableException {
+    public void multiplyByCoefficientTest()   {
         try (IVector vector = DenseVectorV2.getInstance(new double[]{1.0, 2.0, 3.0, 4.0})) {
             IVector checkedVector = vector.multiplyByCoefficient(0.5);
 
@@ -22,7 +22,7 @@ public class MemoryDenseVectorV2Tests {
     }
 
     @Test
-    public void innerProductTest() throws LoggableException {
+    public void innerProductTest()   {
         try (IVector vector0 = DenseVectorV2.getInstance(new double[]{1.0, 1.0, 1.0, 1.0});
              IVector vector1 = DenseVectorV2.getInstance(new double[]{1.0, 1.0, 1.0, 1.0})) {
 
@@ -33,7 +33,7 @@ public class MemoryDenseVectorV2Tests {
     }
 
     @Test
-    public void innerProductDimensionMistakeTest() throws LoggableException {
+    public void innerProductDimensionMistakeTest()   {
         try (IVector vector0 = DenseVectorV2.getInstance(new double[]{1.0, 1.0, 1.0, 1.0, 1.0});
              IVector vector1 = DenseVectorV2.getInstance(new double[]{1.0, 1.0, 1.0, 1.0})) {
 
@@ -46,7 +46,7 @@ public class MemoryDenseVectorV2Tests {
     }
 
     @Test
-    public void maxElementTest() throws LoggableException {
+    public void maxElementTest()   {
         try (IVector vector = DenseVectorV2.getInstance(new double[]{1.0, 2.0, 3.0, 4.0})) {
             Assertions.assertEquals(4.0, vector.getMaxElement());
         } catch (Exception e) {
@@ -55,7 +55,7 @@ public class MemoryDenseVectorV2Tests {
     }
 
     @Test
-    public void computeEuclidNormTest() throws LoggableException {
+    public void computeEuclidNormTest()   {
         try (IVector vector = DenseVectorV2.getInstance(new double[]{1.0, 1.0, 1.0, 1.0, 1.0})) {
             Assertions.assertEquals(Math.sqrt(5.0), vector.getEuclidNorm());
         } catch (Exception e) {
@@ -64,7 +64,7 @@ public class MemoryDenseVectorV2Tests {
     }
 
     @Test
-    public void shiftByCoefficientTest() throws LoggableException {
+    public void shiftByCoefficientTest()   {
         try (IVector vector = DenseVectorV2.getInstance(new double[]{-1.0, -1.0, -1.0, 1.0, 1.0, 1.0})) {
             IVector shiftedVector = vector.shiftByCoefficient(1.0);
 

@@ -3,11 +3,16 @@ plugins {
     id 'java-library'
 }
 
-group 'dev.projects.jnumericalmath.jpentagon.datasources'
+group 'dev.projects.math.jnummath.jdatasources'
 version '0.0.1'
 
 repositories {
     mavenCentral()
+}
+
+java {
+    sourceCompatibility = '17'
+    targetCompatibility = '17'
 }
 
 def openCsvVersion = '5.6'
@@ -27,7 +32,8 @@ dependencies {
         testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     }
 
-    implementation project(':jexception')
+    implementation project(':jkernel')
+
     implementation "com.opencsv:opencsv:${openCsvVersion}"
 
     compileOnly "org.projectlombok:lombok:${lombokVersion}"

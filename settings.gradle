@@ -8,13 +8,17 @@
  */
 
 rootProject.name = 'jnumericalmath'
-include 'jexception'
+
+include 'jkernel'
 include 'jdatasources'
 include 'jtransformations'
+
 include 'jlinalgebra'
 include 'jnumoptimization'
 include 'jmathprogramming'
+
 include 'jnumexpservice'
-include 'jinterpreter'
 include 'jfinitestatemachine'
+include 'jdiscretemath'
+
 
